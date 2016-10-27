@@ -7,18 +7,21 @@ var N_lib=function(){
 
 
 }
+
 N_lib.prototype.lazyload=function(Felem){
       console.log('开始');
     var Scrolltop=0;//滚动标志
     var Felem=document.querySelector(Felem);
-    var FelemHeight=Felem.offsetHeight;
-    var FelemWidth=Felem.offsetWidth;
+    var FelemHeight=Felem==document.querySelector('body')?window.innerWidth:Felem.offsetHeight;
     var Selem=document.querySelectorAll('[data-imgurl]');
     var LoadImage=function(elem){
         var src=elem.getAttribute('data-imgurl');
         var image=new Image();
         image.onload=function(){
         elem.src=src;
+        elem.style.opacity=0;
+        elem.style.webkitTransition='opacity 300ms ease-out';
+        elem.style.opacity=1;
         };
         image.src=src;
     }
