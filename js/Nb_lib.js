@@ -12,6 +12,7 @@ N_lib.prototype.lazyload=function(Felem){
       console.log('开始');
     var Scrolltop=0;//滚动标志
     var Felem=document.querySelector(Felem);
+    var SonNode=Felem.childNodes.length;//滚动区域 元素节点多少
     var FelemHeight=Felem==document.querySelector('body')?window.innerWidth:Felem.offsetHeight;
     var Selem=document.querySelectorAll('[data-imgurl]');
     var LoadImage=function(elem){
@@ -65,7 +66,11 @@ N_lib.prototype.lazyload=function(Felem){
         setInterval(function(){
             if(PdScrollStop())
             {
-                Selem=document.querySelectorAll('[data-imgurl]');
+                if(SonNode!=Felem.childNodes.length)
+                {
+                    Selem=document.querySelectorAll('[data-imgurl]');
+                    SonNode=Felem.childNodes.length;
+                }
                 PdGetUrl(Selem);
             }
 
