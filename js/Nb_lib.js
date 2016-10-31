@@ -13,7 +13,7 @@ N_lib.prototype.lazyload=function(Felem){
     var Scrolltop=0;//滚动标志
     var Felem=document.querySelector(Felem);
     var SonNode=Felem.childNodes.length;//滚动区域 元素节点多少
-    var FelemHeight=Felem==document.querySelector('body')?window.innerWidth:Felem.offsetHeight;
+    var FelemHeight=Felem==document.querySelector('body')?window.innerHeight:Felem.offsetHeight;
     var Selem=document.querySelectorAll('[data-imgurl]');
     var LoadImage=function(elem){
         var src=elem.getAttribute('data-imgurl');
@@ -28,9 +28,12 @@ N_lib.prototype.lazyload=function(Felem){
     }
     var Eloaction=function(elem){
      var top=0;
-     var left=0;
      var _elem=elem;
      while (elem!=Felem){
+         if(elem==null){
+             top=null;
+             break;
+         }
          top=top+parseInt(elem.offsetTop);
          console.log(top);
          elem=elem.offsetParent;
@@ -38,17 +41,14 @@ N_lib.prototype.lazyload=function(Felem){
      return {
          elem:_elem,
          top:top,
-         left:left
+
      };
   };
     var PdGetUrl=function(elem){
         for(var i=0;i<elem.length;i++){
 
             var wz=Eloaction(elem[i]);
-            if((wz.top>Felem.scrollTop)&&(wz.top<Felem.scrollTop+FelemHeight)){
-                LoadImage(wz.elem);
-            }
-            if((wz.top+wz.elem.offsetHeight>Felem.scrollTop)&&(wz.top+wz.elem.offsetHeight<Felem.scrollTop+FelemHeight)){
+            if(wz.top&&(((wz.top>=Felem.scrollTop)&&(wz.top<=Felem.scrollTop+FelemHeight))||((wz.top+wz.elem.offsetHeight>=Felem.scrollTop)&&(wz.top+wz.elem.offsetHeight<=Felem.scrollTop+FelemHeight)))){
                 LoadImage(wz.elem);
             }
 
