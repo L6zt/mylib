@@ -95,7 +95,7 @@ N_lib.prototype.preload=function(array){
         for( var i in array){
                    var img=new Image();
                    img.src=array[i];
-                   img.onunload=function(){
+                   img.onload=function(){
 
 
                    }
