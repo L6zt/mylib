@@ -48,7 +48,7 @@ N_lib.prototype.lazyload=function(Felem){
         for(var i=0;i<elem.length;i++){
 
             var wz=Eloaction(elem[i]);
-            if(wz.top&&(((wz.top>=Felem.scrollTop)&&(wz.top<=Felem.scrollTop+FelemHeight))||((wz.top+wz.elem.offsetHeight>=Felem.scrollTop)&&(wz.top+wz.elem.offsetHeight<=Felem.scrollTop+FelemHeight)))){
+            if((wz.top!=null)&&(((wz.top>=Felem.scrollTop)&&(wz.top<=Felem.scrollTop+FelemHeight))||((wz.top+wz.elem.offsetHeight>=Felem.scrollTop)&&(wz.top+wz.elem.offsetHeight<=Felem.scrollTop+FelemHeight)))){
                 LoadImage(wz.elem);
             }
 
