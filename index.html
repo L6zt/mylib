@@ -2,9 +2,33 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <title>test-demo</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        img{
+            display: block;
+            height: 300px;
+            width: 200px;
+        }
+    </style>
     <script src="js/Nb_lib.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded',function(){
+            var base64='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAaCAYAAACQLf2VAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAylpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NzBCQTUyNEY5QTYyMTFFNkE5M0ZBMDNBRUE3NTFGN0MiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NzBCQTUyNEU5QTYyMTFFNkE5M0ZBMDNBRUE3NTFGN0MiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChXaW5kb3dzKSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuZGlkOmMyZThhOGI2LTU5OGYtZjk0ZS1hNmIxLTE2MWFiOTk3ZWFkYSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpjMmU4YThiNi01OThmLWY5NGUtYTZiMS0xNjFhYjk5N2VhZGEiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz7zURoWAAAAP0lEQVR42mJhYGDQAOJvQPwRRLMACSkgfg/Ev4H4JxOQ+AvE/4D4PxAzgARQwKgAbQQYoRguAIqPP7CoAAgwAODHDSu5mxIFAAAAAElFTkSuQmCC';
+            var test=new  N_lib();
+            test.postImage('[data-imgurl]',base64).lazyload('#load');
+        },false);
+    </script>
 </head>
-<body>
+<body id="load">
+<img data-imgurl="./img/test1.jpg" alt="">
+<img data-imgurl="./img/test2.jpg" alt="">
+<img data-imgurl="./img/test3.jpg" alt="">
+<img data-imgurl="./img/test4.jpg" alt="">
+<img data-imgurl="./img/test5.jpg" alt="">
 </body>
 </html>
