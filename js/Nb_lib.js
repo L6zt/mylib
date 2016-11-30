@@ -15,16 +15,20 @@ N_lib.prototype.lazyload=function(Felem){
     var SonNode=Felem.childNodes.length;//滚动区域 元素节点多少
     var FelemHeight=Felem==document.querySelector('body')?window.innerHeight:Felem.offsetHeight;
     var Selem=document.querySelectorAll('[data-imgurl]');
-    var LoadImage=function(elem){
-        var src=elem.getAttribute('data-imgurl');
-        var image=new Image();
-        image.onload=function(){
-        elem.src=src;
-        elem.style.opacity=0;
-        elem.style.webkitTransition='opacity 300ms ease-out';
-        elem.style.opacity=1;
-        };
-        image.src=src;
+    var LoadImage=function(elem) {
+        var src = elem.getAttribute('data-imgurl');
+        var elemAll = document.querySelectorAll('[data-imgurl="' + src + '"]');
+        var image = new Image();
+        image.onload = function () {
+            for (var x = 0; x < elemAll.length; x++) {
+
+                elemAll[x].src = src;
+                elemAll[x].style.opacity = 0;
+                elemAll[x].style.webkitTransition = 'opacity 300ms ease-out';
+                elemAll[x].style.opacity = 1;
+            }
+        }
+        image.src = src;
     }
     var Eloaction=function(elem){
      var top=0;
